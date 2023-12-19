@@ -10,7 +10,7 @@ object WordFrequencyCounter {
         val words = lines.flatMap(line => line.split(" "))
         val wordFrequency = words.groupBy(identity).mapValues(_.length)
 
-        wordFrequency.toSeq.sortBy(-_._2).foreach { case (word, frequency) =>
+        wordFrequency.toSeq.sortBy(_._2).foreach { case (word, frequency) =>
             println(s"Word: $word, Frequency: $frequency")
         }
         println(fileContent)
