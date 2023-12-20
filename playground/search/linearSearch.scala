@@ -1,4 +1,4 @@
-def linearSearch(arr: Array[Int], target: Int): Option[Int] = {
+def linearSearch[T](arr: Array[T], target: T): Option[Int] = {
     for (i <- 0 until arr.length) {
         if (arr(i) == target) {
             return Some(i)
@@ -7,11 +7,23 @@ def linearSearch(arr: Array[Int], target: Int): Option[Int] = {
     None
 }
 
-val array = Array(4, 2, 7, 1, 9)
-val target = 7
+val intArray = Array(1, 2, 3, 4, 5)
+val intTarget = 3
 
-val result = linearSearch(array, target)
-result match {
-    case Some(index) => println(s"Element $target found at index $index")
-    case None => println(s"Element $target not found in the array")
+val intResult = linearSearch(intArray, intTarget)
+
+val stringArray = Array("apple", "banana", "orange", "grape", "kiwi")
+val stringTarget = "orange"
+
+val stringResult = linearSearch(stringArray, stringTarget)
+
+// Print results
+intResult match {
+    case Some(index) => println(s"Element $intTarget found at index $index in the integer array")
+    case None => println(s"Element $intTarget not found in the integer array")
+}
+
+stringResult match {
+    case Some(index) => println(s"Element $stringTarget found at index $index in the string array")
+    case None => println(s"Element $stringTarget not found in the string array")
 }
